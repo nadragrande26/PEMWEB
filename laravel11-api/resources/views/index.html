@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Makeup Makeover</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Tambahkan CSS langsung untuk modal dan tombol */
+    .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    display: none;
+}
+
+.reservation-form {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+}
+
+.reserve-btn {
+    background-color: #5a5959;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.reserve-btn:hover {
+    background-color: #ccc;
+}
+
+.reservation-form button {
+    margin-top: 10px;
+}
+
+.reservation-form label,
+.reservation-form input,
+.reservation-form select {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.reservation-form button[type="button"] {
+    background-color: #ccc;
+    color: black;
+}
+
+.reservation-form button[type="button"]:hover {
+    background-color: #bbb;
+}
+
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <ul class="navbar">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
+  <header>
+    <img src="grand (2).png" alt="Makeover" class="header-image">
+    <h1>Makeover</h1>
+    <p>Transform Your Look!</p>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <section id="about" class="content-section about">
+      <h2>About Us</h2>
+      <img src="salon.makeover.jpg" alt="About Makeup" class="content-image">
+      <p>Makeover offers professional makeup services for every special moment, including: Bridal Makeup, Casual Makeup, Photoshoot Makeup, and Makeup Classes. So we provide the best touch for your beauty with quality products and a team of experts.</p>
+    </section>
+
+    <section id="services" class="content-section services">
+      <h2>Our Services</h2>
+      <div class="services-list">
+        <div class="service-item">
+          <h3>Bridal Makeup</h3>
+          <p class="price">Rp 1.000.000</p>
+        </div>
+        <div class="service-item">
+          <h3>Photoshoot Makeup</h3>
+          <p class="price">Rp 750.000</p>
+        </div>
+        <div class="service-item">
+          <h3>Casual Makeup</h3>
+          <p class="price">Rp 500.000</p>
+        </div>
+        <div class="service-item">
+          <h3>Makeup Classes</h3>
+          <p class="price">Rp 2.000.000</p>
+        </div>
+      </div>
+      <!-- Tombol Reservasi -->
+      <button onclick="document.getElementById('reservationForm').style.display='flex'" class="reserve-btn">reserve now</button>
+    </section>
+
+    <section id="contact" class="content-section contact">
+      <h2>Contact Us</h2>
+      <p>For orders or questions, call us on <a href="mailto:info082248301192">082248301192</a></p>
+    </section>
+  </main>
+
+  <!-- Formulir Reservasi -->
+<div id="reservationForm" class="modal">
+  <form class="reservation-form" action="process_reservation.php" method="POST">
+      <h2>Reservasi Makeover</h2>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required>
+      
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" required>
+      
+      <label for="phone">phone number:</label>
+      <input type="tel" id="phone" name="phone" required>
+      
+      <label for="service">Our Service:</label>
+      <select id="service" name="service" required>
+          <option value="Bridal Makeup">Bridal Makeup</option>
+          <option value="Photoshoot Makeup">Photoshoot Makeup</option>
+          <option value="Casual Makeup">Casual Makeup</option>
+          <option value="Makeup Classes">Makeup Classes</option>
+      </select>
+      
+      <label for="date">reservation date:</label>
+      <input type="date" id="date" name="date" required>
+      
+      <button type="submit">send reservation</button>
+      <button type="button" onclick="document.getElementById('reservationForm').style.display='none'">cancelled</button>
+  </form>
+</div>
+
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>Soekarno Hatta housing complex, block c.</p>
+      <ul class="footer-links">
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    // Tutup modal jika klik di luar formulir
+    window.onclick = function(event) {
+      const modal = document.getElementById('reservationForm');
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>
